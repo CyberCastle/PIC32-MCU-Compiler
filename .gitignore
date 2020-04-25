@@ -1,3 +1,13 @@
+# backup files #
+################
+*~
+
+# OS generated files #
+######################
+.DS_Store?
+Icon?
+Thumbs.db
+
 # Prerequisites
 *.d
 
