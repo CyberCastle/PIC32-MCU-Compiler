@@ -1,0 +1,10 @@
+#!/bin/csh
+sim30 > /dev/null <<!
+lc $1
+rp
+io
+e
+q
+!
+cat UartOut.txt
+rm UartOut.txt

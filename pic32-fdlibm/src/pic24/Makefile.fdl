@@ -1,0 +1,52 @@
+# Make XC16 version of FDLIBM 5.3, for connection to "f", "", and "l" routines
+
+# Tools and rules
+
+# Do not raise optimization past -O1 on FDLIBM code !!! Need no-short-double
+FDLIBM_OPTS=	-D__LITTLE_ENDIAN -D_POSIX_MODE -O1 -fno-short-double
+XC_OPTS=	-DFDL_MATH
+CFLAGS=		$(FDLIBM_OPTS) $(XC_OPTS) -Wall
+
+XC=		xc16
+AR=		ar
+CC=		gcc
+RANLIB=		ranlib
+ifneq ($(strip $(XC)),)
+	AR=	$(XC)-ar
+	CC=	$(XC)-gcc
+	RANLIB=	$(XC)-ranlib
+endif
+VPATH=		..
+
+# Components
+
+# These are from FDLIBM, everything except the insanely correct argument
+# reduction for very large multiples of pi, and square root, which we provide
+# separately, in a MIPS-specific way (XC16 makes the same choices)
+
+# Some functions that are beyond C89 are also not included
+
+# With FDL_MATH defined, these routines are all named "_"<name>"x", reached by
+# inline functions in fdl_math.h, which should be included by math.h
+OBJ=		e_acos.o e_asin.o e_atan2.o e_cosh.o e_exp.o e_fmod.o \
+		e_log.o e_log10.o e_pow.o e_rem_pio2.o e_sinh.o e_sqrt.o \
+		k_cos.o k_rem_pio2.o k_sin.o k_standard.o k_tan.o s_atan.o \
+		s_ceil.o s_cos.o s_expm1.o s_fabs.o s_floor.o s_finite.o \
+		s_frexp.o s_ldexp.o s_matherr.o s_modf.o s_rint.o \
+		s_scalbn.o s_sin.o s_tan.o s_tanh.o w_acos.o w_asin.o \
+		w_atan2.o w_cosh.o w_exp.o w_fmod.o w_log.o w_log10.o \
+		w_pow.o w_sinh.o w_sqrt.o
+
+LIB=		libfdm.a
+
+# Targets
+all:		$(LIB)
+
+$(LIB): 	$(OBJ)
+		$(AR) rc $@ $(OBJ)
+		$(RANLIB) $@
+clean:
+		rm -f $(OBJ) $(LIB)
+
+# Dependencies
+$(COBJ):	../fdlibm.h

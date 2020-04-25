@@ -1,0 +1,66 @@
+acosf(-1.0)		40490fdb
+asinf(1.0)		3fc90fdb
+atanf(1.0)		3f490fdb
+atan2f(1.0, 1.0)	3f490fdb
+ceilf(1.5)		40000000
+cosf(1.0)		3f0a5140
+coshf(1.0)		3fc583ab
+expf(1.0)		402df854
+fabsf(-1.0)		3f800000
+floorf(1.5)		3f800000
+fmodf(3.0, 2.0)		3f800000
+frexpf(1.0, &e)		3f000000,1
+ldexpf(1.0, 1)		40000000
+logf(2.0)		3f317218
+log10f(2.0)		3e9a209b
+modff(1.5, &f)		3f000000,3f800000
+powf(2.0, -1.0)		3f000000
+sinf(1.0)		3f576aa4
+sinhf(1.0)		3f966cfe
+sqrtf(2.0)		3fb504f3
+tanf(1.0)		3fc75923
+tanhf(1.0)		3f42f7d6
+acos(-1.0)		40490fdb
+asin(1.0)		3fc90fdb
+atan(1.0)		3f490fdb
+atan2(1.0, 1.0)		3f490fdb
+ceil(1.5)		40000000
+cos(1.0)		3f0a5140
+cosh(1.0)		3fc583ab
+exp(1.0)		402df854
+fabs(-1.0)		3f800000
+floor(1.5)		3f800000
+fmod(3.0, 2.0)		3f800000
+frexp(1.0, &e)		3f000000,1
+ldexp(1.0, 1)		40000000
+log(2.0)		3f317218
+log10(2.0)		3e9a209b
+modf(1.5, &f)		3f000000,3f800000
+pow(2.0, -1.0)		3f000000
+sin(1.0)		3f576aa4
+sinh(1.0)		3f966cfe
+sqrt(2.0)		3fb504f3
+tan(1.0)		3fc75923
+tanh(1.0)		3f42f7d6
+acosl(-1.0)		400921fb54442d18
+asinl(1.0)		3ff921fb54442d18
+atanl(1.0)		3fe921fb54442d18
+atan2l(1.0, 1.0)	3fe921fb54442d18
+ceill(1.5)		4000000000000000
+cosl(1.0)		3fe14a280fb5068c
+coshl(1.0)		3ff8b07551d9f551
+expl(1.0)		4005bf0a8b14576a
+fabsl(-1.0)		3ff0000000000000
+floorl(1.5)		3ff0000000000000
+fmodl(3.0, 2.0)		3ff0000000000000
+frexpl(1.0, &e)		3fe0000000000000,1
+ldexpl(1.0, 1)		4000000000000000
+logl(2.0)		3fe62e42fefa39ef
+log10l(2.0)		3fd34413509f79ff
+modfl(1.5, &f)		3fe0000000000000,3ff0000000000000
+powl(2.0, -1.0)		3fe0000000000000
+sinl(1.0)		3feaed548f090cee
+sinhl(1.0)		3ff2cd9fc44eb982
+sqrtl(2.0)		3ff6a09e667f3bcd
+tanl(1.0)		3ff8eb245cbee3a6
+tanhl(1.0)		3fe85efab514f394
