@@ -1,0 +1,70 @@
+
+	.section	.text,code
+	.align	2
+	.globl	__pic32_software_reset
+
+	.set noreorder
+	.set noat
+	.set nomips16
+#if defined(__mips_micromips) || defined(__USE_MICROMIPS)
+	.set micromips
+#else
+	.set nomicromips
+#endif
+
+	.ent	__pic32_software_reset
+	.type	__pic32_software_reset, @function
+
+__pic32_software_reset:
+
+	.frame	$sp,24,$31
+	.mask	0x80000000,-4
+	.fmask	0x00000000,0
+	.set	noreorder
+	.set	nomacro
+
+	di
+	ehb
+
+#if !defined (__PIC__)
+0:
+	li	$3,0xaa990000
+	lui	$2,%hi(SYSKEY)
+	addiu	$3,$3,26197
+	sw	$0,%lo(SYSKEY)($2)
+	sw	$3,%lo(SYSKEY)($2)
+	li	$3,0x55660000
+	ori	$3,$3,0x99aa
+	sw	$3,%lo(SYSKEY)($2)
+	lui	$2,%hi(RSWRSTSET)
+	li	$3,0x1
+	sw	$3,%lo(RSWRSTSET)($2)
+	lui	$2,%hi(RSWRST)
+	lw	$2,%lo(RSWRST)($2)
+
+	j	0b
+	nop
+#else
+0:
+	lw	$2,%got(SYSKEY)($28)
+	sw	$0,0($2)
+	li	$3,0xaa990000
+	addiu	$3,$3,0x6655
+	sw	$3,0($2)
+	li	$3,0x55660000
+	ori	$3,$3,0x99aa
+	sw	$3,0($2)
+
+	li	$3,1
+	lw	$2,%got(RSWRSTSET)($28)
+	sw	$3,0($2)
+	lw	$2,%got(RSWRST)($28)
+	lw	$2,0($2)
+	j	0b
+	nop
+#endif
+	.set	macro
+	.set	reorder
+
+	.end	__pic32_software_reset
+	.size	__pic32_software_reset, .-__pic32_software_reset

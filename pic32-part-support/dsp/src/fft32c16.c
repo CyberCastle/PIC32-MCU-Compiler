@@ -1,0 +1,14 @@
+#include <dsplib_dsp.h>
+
+const int32c fft32c16[8] =
+{
+	{ 0x7fffffff, 0x00000000 },
+	{ 0x7641af3b, 0xcf043ab4 },
+	{ 0x5a827999, 0xa57d8667 },
+	{ 0x30fbc54c, 0x89be50c5 },
+	{ 0x00000000, 0x80000001 },
+	{ 0xcf043ab4, 0x89be50c5 },
+	{ 0xa57d8667, 0xa57d8667 },
+	{ 0x89be50c5, 0xcf043ab4 },
+};
+
