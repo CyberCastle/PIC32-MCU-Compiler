@@ -30,8 +30,9 @@
 *.exe
 *.out
 *.app
+
+# Built artifacts
 Compiler-*.log
 *-image/
 *-build/
 *.zip
-*.o
