@@ -46,3 +46,5 @@ Compiler-*.log
 *-image/
 *-build/
 *.zip
+pic32-sh/bin/xc32-sh
+zips/*
