@@ -96,7 +96,6 @@ SKIPWIN32="yes"
 SKIPARMLINUX="yes"
 SKIPGRAPHITE="yes"
 SKIPMULTIPLENEWLIB="yes"
-SKIPPLIBIMAGE="yes"
 NATIVEIMAGE=`uname`
 NATIVEIMAGE+="-image"
 echo "Native image is $NATIVEIMAGE"
@@ -1902,41 +1901,6 @@ if [ "x$LINUX32IMAGE" != "x" ] ; then
     rm -rf $WORKING_DIR/$LINUX32IMAGE/pic32-tools/share
     rm -rf $WORKING_DIR/$LINUX32IMAGE/pic32-tools/pic32mx/share
     rm -rf $WORKING_DIR/$LINUX32IMAGE/pic32-tools/libsrc
-fi
-
-if [ "x$SKIPPLIBIMAGE" == "x" ]
-then
-    cd $WORKING_DIR
-
-    echo "Downloading $HTTP_PLIB_IMAGE_TAR."
-    echo `date` "Downloading $HTTP_PLIB_IMAGE_TAR..." 2>&1 | tee $LOGFILE >> /dev/null
-    if [ -e plib-image ]
-    then
-        rm -rf plib-image
-    fi
-    curl -L $HTTP_PLIB_IMAGE_TAR | tar jx
-    assert_success $? "Downloading the peripheral-library image from $HTTP_PLIB_IMAGE_TAR"
-
-    if [ "x$NATIVEIMAGE" != "x" ]
-    then
-      rsync -qavzC --include "*/" --include "*" plib-image/ $NATIVEIMAGE/pic32-tools/
-      assert_success $? "ERROR: Install plib in $NATIVEIMAGE"
-    fi
-    if [ "x$LINUX32IMAGE" != "x" ]
-    then
-      rsync -qavzC --include "*/" --include "*" plib-image/ $LINUX32IMAGE/pic32-tools/
-      assert_success $? "ERROR: Install plib in $LINUX32IMAGE"
-    fi
-    if [ -e win32-image ]
-    then
-      rsync -qavzC --include "*/" --include "*" plib-image/ win32-image/pic32-tools/
-      assert_success $? "ERROR: Install plib in win32-image"
-    fi
-    if [ -e arm-linux-image ]
-    then
-      rsync -qavzC --include "*/" --include "*" plib-image/ arm-linux-image/pic32-tools/
-      assert_success $? "ERROR: Install plib in arm-linux-image"
-    fi
 fi
 
 cd $WORKING_DIR
