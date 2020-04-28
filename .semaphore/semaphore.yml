@@ -12,6 +12,6 @@ blocks:
       jobs:
         - name: 'Job #1'
           commands:
-            - bundle exec xcversion select 11.3.1
+            - xcversion select 11.3.1
             - checkout
             - ./compiler-build.sh
