@@ -18,8 +18,8 @@ blocks:
       epilogue:
         on_pass:
           commands:
-            - artifact push project PIC32-MCU-Compiler/zips/pic32-tools-Compiler-2.40-Darwin-image.tar.gz
-            - artifact push project PIC32-MCU-Compiler/zips/pic32-tools-Compiler-2.40-Darwin-image.sha256
+            - artifact push project ~/PIC32-MCU-Compiler/zips/pic32-tools-Compiler-2.40-Darwin-image.tar.gz
+            - artifact push project ~/PIC32-MCU-Compiler/zips/pic32-tools-Compiler-2.40-Darwin-image.sha256
         on_fail:
           commands:
-            - artifact push job --expire-in 2w PIC32-MCU-Compiler/Compiler-2.40.log
+            - artifact push job --expire-in 2w ~/PIC32-MCU-Compiler/Compiler-2.40.log
