@@ -37,7 +37,7 @@ install-headers:
 		mkdir -p $(TGTDESTDIR)/$(dir); \
 		cp $(dir)/* ${TGTDESTDIR}/$(dir) 2>>/dev/null; )
 	cd $(INCDESTDIR) && cd -
-	mkdir -p $(TGTDESTDIR)/pic32mx/lib/proc/32MXGENERIC && cp ./proc/32MXGENERIC/procdefs.ld $(TGTDESTDIR)/pic32mx/lib/proc/32MXGENERIC/
+	mkdir -p $(TGTDESTDIR)/lib/proc/32MXGENERIC && cp ./proc/32MXGENERIC/procdefs.ld $(TGTDESTDIR)/lib/proc/32MXGENERIC/
 
 .PHONY: all install clean install-headers install-baseline install-proc
 .PHONY: $(SUBDIRS)
