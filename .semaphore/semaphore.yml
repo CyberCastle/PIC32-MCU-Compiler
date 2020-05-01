@@ -12,14 +12,20 @@ blocks:
       jobs:
         - name: 'Job #1'
           commands:
+            - rm -Rf ~/.cocoapods
+            - rm -Rf ~/.flutter
+            - rm -Rf ~/.gradle
+            - rm -Rf ~/flutter
+            - rm -Rf ~/Library/Developer/CoreSimulator
             - xcversion select 11.3.1
             - checkout
-            - ./compiler-build.sh
+            - ./compiler-build-osx.sh
       epilogue:
         on_pass:
           commands:
             - artifact push project ~/PIC32-MCU-Compiler/zips/pic32-tools-Compiler-2.40-Darwin-image.tar.gz
             - artifact push project ~/PIC32-MCU-Compiler/zips/pic32-tools-Compiler-2.40-Darwin-image.sha256
+            - artifact push job --expire-in 2w ~/PIC32-MCU-Compiler/Compiler-2.40.log
         on_fail:
           commands:
             - artifact push job --expire-in 2w ~/PIC32-MCU-Compiler/Compiler-2.40.log
