@@ -242,7 +242,8 @@ echo "$DATE $TIME Configuring cross binutils build in $WORKING_DIR/native-build.
     $HOSTMACHINE --target=pic32mx --prefix="$WORKING_DIR/$NATIVEIMAGE/pic32-tools" --bindir="$WORKING_DIR/$NATIVEIMAGE/pic32-tools/bin/bin" \
     --libexecdir="$WORKING_DIR/$NATIVEIMAGE/pic32-tools/bin/bin" --disable-nls --disable-tui --disable-gdbtk --disable-shared --enable-static \
     --disable-threads --disable-bootstrap --with-dwarf2 --enable-multilib --without-newlib --disable-sim --with-lib-path=: --enable-poison-system-directories \
-    --program-prefix=pic32- --disable-werror --with-bugurl=https://github.com/CyberCastle/PIC32-MCU-Compiler 2>&1 | tee -a "$LOGFILE" >>/dev/null
+    --program-prefix=pic32- --disable-werror --disable-debug \
+    --with-bugurl=https://github.com/CyberCastle/PIC32-MCU-Compiler 2>&1 | tee -a "$LOGFILE" >>/dev/null
 
 assert_success $? "ERROR: configuring cross binutils build"
 
@@ -387,7 +388,7 @@ AR_FOR_TARGET="$WORKING_DIR/$NATIVEIMAGE/pic32-tools/pic32mx/bin/ar" \
     --enable-languages=c,c++ --disable-shared --enable-static --with-newlib --disable-nls --disable-libgomp --without-headers --disable-libffi --disable-bootstrap \
     --disable-decimal-float --disable-libquadmath --disable-__cxa_atexit --disable-libfortran --disable-libstdcxx-pch --prefix="$WORKING_DIR/$NATIVEIMAGE/pic32-tools" \
     --bindir="$WORKING_DIR/$NATIVEIMAGE/pic32-tools/bin/bin" --libexecdir="$WORKING_DIR/$NATIVEIMAGE/pic32-tools/bin/bin" --with-dwarf2 \
-    --with-gmp="$WORKING_DIR/native-build/host-libs" $USE_CLOOG $USE_PPL "$LIBHOST" --enable-lto --enable-fixed-point \
+    --with-gmp="$WORKING_DIR/native-build/host-libs" $USE_CLOOG $USE_PPL "$LIBHOST" --enable-lto --enable-fixed-point --disable-debug \
     XGCC_FLAGS_FOR_TARGET="-frtti -fexceptions -fno-enforce-eh-specs" CXXFLAGS="-g3" $SUPPORT_SJLJ_EXCEPTIONS --enable-obsolete --disable-sim \
     --disable-checking $SUPPORT_HOSTED_LIBSTDCXX --with-bugurl=https://github.com/CyberCastle/PIC32-MCU-Compiler 2>&1 | tee -a "$LOGFILE" >>/dev/null
 
