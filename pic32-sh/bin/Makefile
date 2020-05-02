@@ -87,7 +87,7 @@ CC=gcc
 STRIP=strip
 endif
 
-COPT = -c -Wall -g -I..$(SLASH)include -DMCHP_VERSION=$(MCHP_VERSION)
+COPT = -c -Wall -I..$(SLASH)include -DMCHP_VERSION=$(MCHP_VERSION)
 OBJ= pic30-sh.o linker.o
 OBJ32= xc32-sh.o xc32-linker.o
 
@@ -102,11 +102,11 @@ xc32: xc32-sh$(EXE)
 
 pic30-sh$(EXE): $(OBJ)
 	@echo $@
-	$(CC) -g -o $@ $(OBJ) $(EXTRAOPS) $(LINK)
+	$(CC) -o $@ $(OBJ) $(EXTRAOPS) $(LINK)
 
 xc32-sh$(EXE): $(OBJ32)
 	@echo $@
-	$(CC) -g -o $@ $(OBJ32) $(EXTRAOPS) $(LINK) 
+	$(CC) -o $@ $(OBJ32) $(EXTRAOPS) $(LINK) 
 
 clean:
 	-rm -f $(OBJ) $(OBJ32) pic30-sh$(EXE) xc32-sh$(EXE)
