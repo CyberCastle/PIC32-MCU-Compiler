@@ -16,14 +16,14 @@ NEWLIB_CONFIGURE_FLAGS="
 	--enable-obsolete --enable-sjlj-exceptions --disable-__cxa_atexit --disable-libfortran --disable-libgomp --disable-libffi --program-prefix=pic32- --with-newlib
 	--enable-newlib-io-long-long --disable-newlib-multithread --disable-libgloss --disable-newlib-supplied-syscalls --disable-nls --disable-libunwind-exceptions    
 	--enable-libstdcxx-allocator=malloc --disable-newlib-atexit-alloc --disable-libstdcxx-verbose -enable-lto --enable-fixed-point --enable-obsolete --disable-sim
-	--disable-checking --with-bugurl=https://github.com/CyberCastle/PIC32-MCU-Compiler"
+	--disable-checking --disable-debug --with-bugurl=https://github.com/CyberCastle/PIC32-MCU-Compiler"
 
 GCC_CONFIGURE_FLAGS="
 	--enable-target-optspace --disable-libunwind-exceptions --enable-sjlj-exceptions --enable-libstdcxx-allocator=malloc --disable-hosted-libstdcxx --target=pic32mx
 	--enable-target-optspace --program-prefix=pic32- --disable-threads --disable-libmudflap --disable-libssp --enable-sgxx-sde-multilibs --with-gnu-as --with-gnu-ld
 	--enable-languages=c,c++ --disable-shared --enable-static --with-newlib --disable-nls --disable-libgomp --without-headers --disable-libffi --disable-bootstrap
 	--disable-decimal-float --disable-libquadmath --disable-__cxa_atexit --disable-libfortran --disable-libstdcxx-pch --with-dwarf2 --disable-libstdcxx-verbose
-	--enable-poison-system-directories --enable-lto --enable-fixed-point --enable-obsolete --disable-sim --disable-checking --disable-gofast
+	--enable-poison-system-directories --enable-lto --enable-fixed-point --enable-obsolete --disable-sim --disable-checking --disable-gofast --disable-debug
 	--with-bugurl=https://github.com/CyberCastle/PIC32-MCU-Compiler"
 
 CXX_FLAGS_FOR_TARGET="
