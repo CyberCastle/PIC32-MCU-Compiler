@@ -23,6 +23,9 @@ blocks:
             - xcversion select 11.3.1
             - rm -Rf /Applications/Xcode-11.2.1.app
             - rm -Rf /Applications/Xcode-11.4.1.app
+            - rm -Rf /usr/local/Caskroom/*
+            - rm -Rf /usr/local/Cellar/*
+            - rm -Rf /usr/local/Homebrew/*
             - checkout
             - ./compiler-build-osx.sh
       epilogue:

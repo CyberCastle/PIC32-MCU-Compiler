@@ -98,6 +98,8 @@ echo "Working folder $WORKING_DIR" | tee -a "$LOGFILE"
 function assert_success() {
     local RESULT=$1
     local MESSAGE=$2
+    # For free space
+    rm -rf "${TMPDIR:?}/"* 2>&1 | tee -a "$LOGFILE"
     if [ $RESULT != 0 ]; then
         echo "$MESSAGE ($RESULT)"
         if [ "x$GROWL_SEND" != "x" ]; then
