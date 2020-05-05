@@ -12,8 +12,9 @@ blocks:
       jobs:
         - name: 'Job #1'
           commands:
-            - rm -Rf /Applications/Firefox.app
-            - rm -Rf /Applications/Google\ Chrome.app
+            - brew cask uninstall firefox google-chrome java microsoft-edge
+            - brew uninstall ideviceinstaller ios-deploy yarn nvm node node@12 rbenv ruby-build  htop bats libusbmuxd libimobiledevice libusb oniguruma jq lftp ncurses
+            - rm -Rf ~/Library/Caches/Homebrew
             - rm -Rf ~/.rbenv
             - rm -Rf ~/.cocoapods
             - rm -Rf ~/.flutter
@@ -24,7 +25,6 @@ blocks:
             - rm -Rf /Applications/Xcode-11.2.1.app
             - rm -Rf /Applications/Xcode-11.4.1.app
             - rm -Rf /usr/local/Caskroom/*
-            - rm -Rf /usr/local/Cellar/*
             - rm -Rf /usr/local/Homebrew/*
             - checkout
             - ./compiler-build-osx.sh
