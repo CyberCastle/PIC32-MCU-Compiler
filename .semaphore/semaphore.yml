@@ -12,6 +12,8 @@ blocks:
       jobs:
         - name: 'Job #1'
           commands:
+            - rm -Rf /Applications/Firefox.app
+            - rm -Rf /Applications/Google\ Chrome.app
             - rm -Rf ~/.rbenv
             - rm -Rf ~/.cocoapods
             - rm -Rf ~/.flutter
@@ -19,6 +21,8 @@ blocks:
             - rm -Rf ~/flutter
             - rm -Rf ~/Library/Developer/CoreSimulator
             - xcversion select 11.3.1
+            - rm -Rf /Applications/Xcode-11.2.1.app
+            - rm -Rf /Applications/Xcode-11.4.1.app
             - checkout
             - ./compiler-build-osx.sh
       epilogue:
