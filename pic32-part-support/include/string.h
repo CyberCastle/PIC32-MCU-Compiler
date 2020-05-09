@@ -1,13 +1,13 @@
 #ifndef _STRING_H_
 #define _STRING_H_
 
-/* String functions */
-
-#ifndef _STDDEF_H_
 #ifdef __cplusplus
 extern "C" {
 #endif
 
+/* String functions */
+
+#ifndef _STDDEF_H_
 #include <stddef.h>
 #endif /* _STDDEF_H_ */
 
